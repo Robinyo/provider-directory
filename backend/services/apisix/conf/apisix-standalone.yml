@@ -1,0 +1,89 @@
+upstreams:
+  - name: provider-directory
+    id: 1
+    type: roundrobin
+    nodes:
+      "provider-directory:8080": 1
+
+routes:
+  - name: provider-directory-web-testpage-overlay
+    uri: /*
+    methods: [ "GET", "HEAD" ]
+    upstream_id: 1
+
+  - name: provider-directory-fhir
+    uri: /fhir
+    methods: [ "GET", "HEAD" ]
+    upstream_id: 1
+
+  - name: provider-directory-swagger-ui
+    uri: /fhir/swagger-ui*
+    methods: [ "GET", "HEAD" ]
+    upstream_id: 1
+
+  - name: provider-directory-api-docs
+    uri: /fhir/api-docs*
+    methods: [ "GET", "HEAD" ]
+    upstream_id: 1
+
+ssls:
+  -
+    cert: |
+      -----BEGIN CERTIFICATE-----
+      MIIEazCCAtOgAwIBAgIQM1H/xRF4tLo4Z54PUfWZFzANBgkqhkiG9w0BAQsFADCB
+      jzEeMBwGA1UEChMVbWtjZXJ0IGRldmVsb3BtZW50IENBMTIwMAYDVQQLDClyb2JA
+      Um9icy1NYWNCb29rLVByby5sb2NhbCAoUm9iIEZlcmd1c29uKTE5MDcGA1UEAwww
+      bWtjZXJ0IHJvYkBSb2JzLU1hY0Jvb2stUHJvLmxvY2FsIChSb2IgRmVyZ3Vzb24p
+      MB4XDTI1MDYyMDIyNTkwN1oXDTI3MDkyMDIyNTkwN1owXTEnMCUGA1UEChMebWtj
+      ZXJ0IGRldmVsb3BtZW50IGNlcnRpZmljYXRlMTIwMAYDVQQLDClyb2JAUm9icy1N
+      YWNCb29rLVByby5sb2NhbCAoUm9iIEZlcmd1c29uKTCCASIwDQYJKoZIhvcNAQEB
+      BQADggEPADCCAQoCggEBALSm5REEL+BEPEmgm8T+DSHWBBtarXcTa7ruea9JXt3e
+      kZ6UoLqY3N8d0RI70bQVHgmV4v0hWsPsycJcbDF5xkOATvsZLOZGv/v8p5hHsute
+      MTSZ2hvPeI0kZcwaZ3qVBE+dS1nDIcr9L/Kt2uJ+dT+vC3xFO9oQUXwuhQcdoT62
+      oXq+bh0w6zUXffwUf4DWxfE6TJTiTJ5Lu2BW0Sru1u8Px2E79WOuU1dHR5iPlP1Q
+      R2ThGj9G0pnqw4Xx2x1pzEMA8fzajoz/0SR0zi2LlTq0uYa205Z0KQoTbTsk55Gs
+      7hSaEGElpm/0A7g1UxH7mWXH4qVY5NVc6oDOAWlRK90CAwEAAaN0MHIwDgYDVR0P
+      AQH/BAQDAgWgMBMGA1UdJQQMMAoGCCsGAQUFBwMBMB8GA1UdIwQYMBaAFCyruiOK
+      PnA0rm0jbFLFGs3qJTQrMCoGA1UdEQQjMCGCH3Byb3ZpZGVyLWRpcmVjdG9yeS5h
+      dS5sb2NhbGhvc3QwDQYJKoZIhvcNAQELBQADggGBAFUFhEQ3vu+NAemryVkiqUgc
+      r7ooDtTJnhwH4h3IquY3vZN02sJokd0FG3EZ8xUs8QGBw9mOTJIuYqW/DBGwDM1L
+      ECcG2mU10pW/N/0oLoriByXcJ1T1TKrdQTRnjuS5nGP95BeQ8PrWiIQ+oZIW1UPX
+      km8kpquzw1cMe6clUeGQqVeQIkte75PCOVb9e6kiezKKkkRtABIPTmnVklpfmkwE
+      EHXFEGOhQFJO4rS2yluYQXPl7ydNX3eUHc/Cqwf87ZN5aID66M+ZvWfHoY0JaEx6
+      k8jj1thoXDP2AnOkblY+HXZChkSraYAHw6wz0CKzBZCwcI3/Y4EUysq9qa861Xhf
+      zR0D1SwOnRhiRmVdyejDio2cO7CyYJKgcQ+/E0CosoysnbPuCm7c7uKoT4V4Bl8F
+      ZiGXcoAmL73wFNnXwMmNcegqLZhe430/5kxUh5s3ThRwnpmPUNiKa/DrfFoQAzqa
+      WbCHMoyFc0RPTc3Ayp+6nk5O3vIpTvAgNjGDBw5ztg==
+      -----END CERTIFICATE-----
+    key: |
+      -----BEGIN PRIVATE KEY-----
+      MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC0puURBC/gRDxJ
+      oJvE/g0h1gQbWq13E2u67nmvSV7d3pGelKC6mNzfHdESO9G0FR4JleL9IVrD7MnC
+      XGwxecZDgE77GSzmRr/7/KeYR7LrXjE0mdobz3iNJGXMGmd6lQRPnUtZwyHK/S/y
+      rdrifnU/rwt8RTvaEFF8LoUHHaE+tqF6vm4dMOs1F338FH+A1sXxOkyU4kyeS7tg
+      VtEq7tbvD8dhO/VjrlNXR0eYj5T9UEdk4Ro/RtKZ6sOF8dsdacxDAPH82o6M/9Ek
+      dM4ti5U6tLmGttOWdCkKE207JOeRrO4UmhBhJaZv9AO4NVMR+5llx+KlWOTVXOqA
+      zgFpUSvdAgMBAAECggEAanpEYbc6ENGnRy5nIcEsNFlUqlrUC29i/Bc7mdmBFPzu
+      j63C3rji1o9Yf4rKm34m6jdyRwi12u1iLjEThEXmWjryUoYQNNpWpkvQ7Ky2BIzM
+      K9jS+blbsLVXWunlPBdBJzvrAclFzcNV05Ath3pJ2XNvLZwRHwKnRK6Wsg8Az1kP
+      1yp6zwpK8jiVZe7BwmKSAxpghq/zdjwr4VMySqu0KN919AzfaTYuOqczs5R7SzI0
+      7+AJ5X3cqAI+DHzRdVyhaSc3kXzvA2gSijWZhu0rDsH+uL4olhQbAiatiFsJ8Xkm
+      wrOFGLzBW1o6CQBV31ZYTx3/QmpKaRF03zmWqduqgQKBgQDmB6QY9JmjRaSoPgHK
+      C4qkcFLFXyGtQCUD2t3Wrw0Qrs7tl+B3hgL8dDsNyffckvGuJUZjStKEnbhMPQAm
+      Xh1fF+O9CmrtvAsFCeHpGZRSjhpSfdOD5oz2LjW38AnWzJVOw0eCsx/6Ibd0HuxF
+      vnkktjufdr6wgbM/kh3SrbOSiQKBgQDJDCAgBh8guYgmodAsL4XWw0fx4E9VjS5d
+      McMuMO1QTrQRWmyDoY/uufm07JLMD55MrQc0knpID6mILgSsfQm8vMdCTZJTU8/i
+      K8A6OObkHbzazx5P5cq4c1r3cL6+uGZ8YSImGzpi2QPtjX/hdJ5EMMqz1/x+y6vN
+      Vj5doaXJtQKBgDk5zWkn8NDdkokIZAmPtX4TM4RGlmozewHqgSXXhriPxIr3LbCO
+      dk+32rkjdbY6GEXqoAgzpQu48RCGXHMvFr+BgfaVkORz04n9W2ZSJsQi9glvpB88
+      S/UyqcqIvOnjG4Hssu2hAmOH38vTpZP0Ps8TRuH0+JuQqLc38pNnAzWBAoGBAIyE
+      yxdW7/7BbmYCByw68wLObsSiEREsolFE7LSmQdg1iinu15WRILasidlo2JmD+RKC
+      hVy7XHhtagLilyWwJ1QhZevzp+hR1iSwi6SmDMs39b3BseAKLoyJI/V6efd3jzoz
+      8dhMg5x/Lf2lPtJn3g6vQ547wiElXakhNGnhB61ZAoGARbVxg5SH00pkjvLfVKna
+      WEnOCjxCkjJfMViAsHGz3UlmhwED9eoFLNr7ZBneebBee4R+PEHZZHxaaLD4MDa+
+      pdNGQTKKa9zl7C6t4yhdW4XXgkn4Tx7yhyKXg2bW0nbnDx0RAV8U2wPGPJLO3XV7
+      v1znWf50FB9frWw86Az6ctE=
+      -----END PRIVATE KEY-----
+    snis:
+      - "provider-directory.au.localhost"
+#END

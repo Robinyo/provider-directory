@@ -1,0 +1,158 @@
+services:
+
+  # Make sure your certificates and keys (the *.pem files in the ./certs directory) have the correct permissions -> i.e., sudo chmod 600 *.pem
+
+  # frontend Network
+
+  provider-directory:
+    container_name: provider-directory
+    build:
+      context: ./services/provider-directory
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/${PROVIDER_DIRECTORY_DB}
+      SPRING_DATASOURCE_USERNAME: ${POSTGRES_USER}
+      SPRING_DATASOURCE_PASSWORD: ${POSTGRES_PASSWORD}
+      SPRING_DATASOURCE_DRIVER_CLASS_NAME: org.postgresql.Driver
+      SPRING_JPA_PROPERTIES_HIBERNATE_DIALECT: ca.uhn.fhir.jpa.model.dialect.HapiFhirPostgresDialect
+      SPRING_JPA_PROPERTIES_SEARCH_ENABLED: false
+    env_file:
+      - ./.env
+    volumes:
+      - '${PWD}/certs/keystore.p12:/keystore/keystore.p12'
+    configs:
+      - source: hapi
+        target: /app/config/application.yaml
+    depends_on:
+      # keycloak.au.localhost:
+      postgres:
+        condition: service_healthy
+    networks:
+      - frontend
+      - backend
+
+  opa:
+    container_name: opa
+    build:
+      context: ./services/opa
+      dockerfile: Dockerfile
+    command: [ "run", "--server", "--addr", ":8181", "--log-level", "debug" ]
+    restart: unless-stopped
+    ports:
+      # - 8181
+      - 8181:8181
+    networks:
+      - frontend
+      - backend
+
+  opa-init:
+    image: curlimages/curl:8.13.0
+    user: root
+    entrypoint: /bin/sh -c "apk add --no-cache jq && /initopa.sh"
+    volumes:
+      - ${PWD}/services/opa/conf/rbac.json:/rbac.json
+      - ${PWD}/services/opa/conf/organization.rego:/organization.rego
+      - ${PWD}/services/opa/conf/initopa.sh:/initopa.sh
+    depends_on:
+      opa:
+        condition: service_started
+    networks:
+      - frontend
+
+  apisix:
+    container_name: apisix
+    build:
+      context: ./services/apisix
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    ports:
+      - 80:9080
+      - 443:9443
+    environment:
+      APISIX_STAND_ALONE: true
+      APISIX_SSL_CERT: /usr/local/apisix/conf/cert/cert.pem
+      APISIX_SSL_CERT_KEY: /usr/local/apisix/conf/cert/key.pem
+    env_file:
+      - ./.env
+    extra_hosts:
+      - 'host.docker.internal:host-gateway'
+    volumes:
+      - '${PWD}/services/apisix/conf/config-standalone.yml:/usr/local/apisix/conf/config.yaml'
+      - '${PWD}/services/apisix/conf/apisix-standalone.yml:/usr/local/apisix/conf/apisix.yaml'
+      - '${PWD}/certs/cert.pem:/usr/local/apisix/conf/cert/cert.pem'
+      - '${PWD}/certs/key.pem:/usr/local/apisix/conf/cert/key.pem'
+    networks:
+      - frontend
+      - backend
+
+  # backend Network
+
+  postgres:
+    container_name: postgres
+    image: percona/percona-distribution-postgresql:17.5
+    restart: unless-stopped
+    # -c config_file=/etc/postgresql/postgresql.conf
+    command: >
+      -c ssl=on 
+      -c ssl_cert_file=/var/lib/postgresql/server.crt 
+      -c ssl_key_file=/var/lib/postgresql/server.key
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -d $${PROVIDER_DIRECTORY_DB} -U $${POSTGRES_USER}"]
+      start_period: 10s
+      interval: 30s
+      retries: 5
+      timeout: 5s
+    environment:
+      POSTGRES_DB: ${PROVIDER_DIRECTORY_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      PGSSLMODE: require
+      ENABLE_PG_TDE: 1
+    env_file:
+      - ./.env
+    volumes:
+      - '${PWD}/certs/cert.pem:/var/lib/postgresql/server.crt'
+      - '${PWD}/certs/key.pem:/var/lib/postgresql/server.key'
+      - postgres_data:/var/lib/postgresql/data
+      # - '${PWD}/services/postgres/conf/postgresql.conf:/etc/postgresql/postgresql.conf'
+      # - '${PWD}/services/postgres/initdb:/docker-entrypoint-initdb.d'
+    networks:
+      - backend
+
+  pgadmin:
+    container_name: pgadmin
+    build:
+      context: ./services/pgadmin
+      dockerfile: Dockerfile
+    ports:
+      - 5443:443
+    volumes:
+      - '${PWD}/certs/cert.pem:/certs/server.cert'
+      - '${PWD}/certs/key.pem:/certs/server.key'
+      - '${PWD}/pgadmin_data:/var/lib/pgadmin'
+    environment:
+      PGADMIN_ENABLE_TLS: true
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}
+    depends_on:
+      # keycloak.au.localhost:
+      postgres:
+        condition: service_healthy
+    networks:
+      - backend
+
+networks:
+  frontend:
+    driver: bridge
+  backend:
+    driver: bridge
+
+volumes:
+  postgres_data:
+    driver: local
+
+configs:
+  hapi:
+    file: ./hapi.application.yaml
+    # file: ./hapi.application-fhir-au-core-1.0.0-preview.yaml

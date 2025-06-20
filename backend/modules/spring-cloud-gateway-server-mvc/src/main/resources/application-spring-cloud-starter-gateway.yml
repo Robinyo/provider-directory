@@ -1,0 +1,36 @@
+server:
+  port: 4180
+
+logging:
+  level:
+    root: INFO
+    org.springframework.web: INFO
+    org.springframework.cloud.gateway: DEBUG
+
+spring:
+  main:
+    banner-mode: off
+  profiles:
+    active: @spring.profiles.active@
+  cloud:
+    gateway:
+      httpclient:
+        ssl:
+          useInsecureTrustManager: true
+      routes:
+        - id: hapi-fhir
+          uri: http://www.bom.gov.au/
+          predicates:
+            - Path=/**
+
+management:
+  endpoint:
+    gateway:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+# https://docs.spring.io/spring-cloud-gateway/reference/spring-cloud-gateway/actuator-api.html
+# https://cloud.spring.io/spring-cloud-gateway/multi/multi__tls_ssl.html

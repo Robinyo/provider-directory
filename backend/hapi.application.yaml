@@ -1,0 +1,7 @@
+server:
+  max-http-request-header-size: 64KB
+hapi:
+  fhir:
+    server_address: https://provider-directory.au.localhost/fhir
+    default_encoding: json
+    # dao_config.server_id_mode: UUID
