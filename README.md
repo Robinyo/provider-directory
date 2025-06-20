@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./logo.svg" alt="HAPI FHIR AU with Auth Starter Project" width="400"/>
+  <img src="./logo.svg" alt="Provider Directory Starter Project" width="400"/>
 </p>
 
 <h1 align="center">HAPI FHIR AU Starter Project</h1>
