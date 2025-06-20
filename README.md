@@ -9,20 +9,7 @@
 </p>
 
 <p align="center">
-  The goal of this project is to demonstrate secure access to FHIR resources. <br>
-</p>
-
-<p align="center">
-  TLS is used to encrypt <b>data in transit</b> and AES to encrypt <b>data at rest</b>.
-</p>
-
-<p align="center">
-  OpenID Connect is used for authentication and OAuth 2.0 (e.g., SMART on FHIR) for authorisation. <br>
-</p>
-
-<p align="center">
-  HAPI FHIR Server Version: 8.0.0 <br>
-  FHIR Version: 4.0.1 (R4) <br>
+  The goal of this project is to demonstrate secure access to FHIR Resources in a Provider Directory.<br>
 </p>
 
 ![divider](./divider.png)
@@ -31,15 +18,6 @@
 
 * Developer Documentation
   * [Quick Start Guide](./docs/developer/quick-start-guide/README.md)
-  * [mkcert](./docs/developer/mkcert/README.md)
-* Administrator Documentation
-  * [Working with APISIX](./docs/administrator/apisix/README.md)
-  * [Working with Docker](./docs/administrator/docker/README.md)
-  * [Working with Keycloak](./docs/administrator/keycloak/README.md)
-  * [Working with HAPI FHIR](./docs/administrator/hapi-fhir/README.md)
-  * [Working with PostgreSQL](./docs/administrator/postgres/README.md)
-  * [Working with pgAdmin](./docs/administrator/pgadmin/README.md)
-  * [Working with the Percona Distribution for PostgreSQL](./docs/administrator/percona-distribution-for-postgresql/README.md)
 
 ![divider](./divider.png)
 
@@ -139,16 +117,6 @@
 * API7 docs: [authz-keycloak plugin](https://docs.api7.ai/hub/authz-keycloak)
 * APISIX docs: [Code Samples](https://apisix.apache.org/docs/general/code-samples/)
 
-### Nginx
-
-* Nginx docs: [NGINX SSL Termination](https://docs.nginx.com/nginx/admin-guide/security-controls/terminating-ssl-http/)
-* Nginx docs: [Authentication Based on Subrequest Result](https://docs.nginx.com/nginx/admin-guide/security-controls/configuring-subrequest-authentication/)
-
-### OAuth2 Proxy
-
-* OAuth2 Proxy docs: [Integration](https://oauth2-proxy.github.io/oauth2-proxy/configuration/integration)
-* OAuth2 Proxy docs: [TLS Configuration](https://oauth2-proxy.github.io/oauth2-proxy/configuration/tls/)
-
 ### Open Policy Agent
 
 * Open Policy Agent docs: [Introduction](https://www.openpolicyagent.org/docs)
@@ -168,24 +136,6 @@
 
 * HL7 Australia: [Terminology](https://confluence.hl7.org/display/HAFWG/Terminology)
 * ADHA: [National Clinical Terminology Service](https://www.healthterminologies.gov.au/)
-
-### Clinical Information Systems
-
-#### Oracle Health Millennium Platform
-
-* Oracle Health Millennium Platform: [Authorization Framework](https://docs.oracle.com/en/industries/health/millennium-platform-apis/fhir-authorization-framework/#authorization)
-* Oracle Health Millennium Platform: [FHIR R4 APIs](https://docs.oracle.com/en/industries/health/millennium-platform-apis/mfrap/rest-endpoints.html)
-
-#### Smile Digital Health
-
-* Smile CDR docs: [SMART on FHIR - Introduction](https://smilecdr.com/docs/smart/smart_on_fhir_introduction.html)
-* Smile CDR docs: [SMART on FHIR - Supported Scopes](https://smilecdr.com/docs/smart/smart_on_fhir_smile_cdr.html#smile-cdr-supported-smart-scopes)
-
-### okta
-
-* okta Developer blog: [Add Auth to Any App with OAuth2 Proxy](https://developer.okta.com/blog/2022/07/14/add-auth-to-any-app-with-oauth2-proxy)
-* okta forum: [SMART on FHIR wildcard scopes](https://devforum.okta.com/t/creating-wildcard-custom-scopes-for-oauth2/27418)
-* GitHub: [Okta SMART on FHIR Setup Guide - scopes](https://github.com/oktadev/okta-smartfhir-docs/blob/original-v1-documentation/SETUP.md#scopes)
 
 ### Miscellaneous 
 
