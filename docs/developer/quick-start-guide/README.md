@@ -8,6 +8,7 @@ Change the current working directory to the location where you want the cloned p
 cd ~/workspace
 ```
 
+
 Clone the project by running the following command:
 
 ```
