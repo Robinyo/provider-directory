@@ -2,14 +2,10 @@
   <img src="./logo.svg" alt="Provider Directory Starter Project" width="400"/>
 </p>
 
-<h1 align="center">HAPI FHIR AU Starter Project</h1>
+<h1 align="center">Provider Directory Starter Project</h1>
 
 <p align="center">
-  <b>A HAPI FHIR Starter Project with support for AuthN and AuthZ.</b> <br>
-</p>
-
-<p align="center">
-  The goal of this project is to demonstrate secure access to FHIR Resources in a Provider Directory.<br>
+  The goal of this project is to demonstrate secure access to FHIR resources in a Provider Directory.<br>
 </p>
 
 ![divider](./divider.png)
