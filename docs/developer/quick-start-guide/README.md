@@ -67,9 +67,9 @@ docker volume rm backend_postgres_data
 docker volume rm backend_cache
 ```
 
-### Call the HAPI FHIR API
+### Call the Provider Directory API
 
-##### OAuth 2.0 Client Credentials Grant
+#### OAuth 2.0 Client Credentials Grant
 
 You must allow the 'Service account roles' capability config setting in order to enable support for the OAuth 2.0 **Client Credentials grant**:
 
@@ -81,20 +81,7 @@ You must allow the 'Service account roles' capability config setting in order to
 
 To access the API, you must request an access token. You will need to POST to the token URL.
 
-For example (`scope=system/Patient.read`):
-
-```
-ACCESS_TOKEN=$(curl -s -X POST https://keycloak.au.localhost:8443/realms/hapi-fhir-dev/protocol/openid-connect/token \
-  -H 'content-type: application/x-www-form-urlencoded' \
-  -d grant_type=client_credentials \
-  -d client_id=oauth2-proxy \
-  -d client_secret=aHkRec1BYkfaKgMg164JmvKu8u9iWNHM \
-  -d scope=system/Patient.read | (jq -r '.access_token'))
-                 
-# echo "$ACCESS_TOKEN"                 
-```
-
-or for example (`scope=system/Organization.read`):
+For example (`scope=system/Organization.read`):
 
 ```
 ACCESS_TOKEN=$(curl -s -X POST https://keycloak.au.localhost:8443/realms/hapi-fhir-dev/protocol/openid-connect/token \
@@ -130,164 +117,7 @@ To call the API, an application must pass the access token as a Bearer token in 
 For example:
 
 ```
-curl -X GET https://hapi-fhir.au.localhost/fhir/Patient?_id=baratz-toni \
-  -H 'Content-Type: application/fhir+json' \
-  -H "Authorization: Bearer $ACCESS_TOKEN"
-```
-
-You should see something like:
-
-```
-{
-  "resourceType": "Bundle",
-  "id": "9d80c83a-0b06-4b78-bce2-21e6666348d8",
-  "meta": {
-    "lastUpdated": "2025-05-23T05:43:01.959+00:00"
-  },
-  "type": "searchset",
-  "total": 1,
-  "link": [ {
-    "relation": "self",
-    "url": "https://hapi-fhir.au.localhost/fhir/Patient?_id=baratz-toni"
-  } ],
-  "entry": [ {
-    "fullUrl": "https://hapi-fhir.au.localhost/fhir/Patient/baratz-toni",
-    "resource": {
-      "resourceType": "Patient",
-      "id": "baratz-toni",
-      "meta": {
-        "versionId": "1",
-        "lastUpdated": "2025-05-23T05:42:36.551+00:00",
-        "source": "#rKTCeZfmnReSjm8X",
-        "profile": [ "http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient" ]
-      },
-      "extension": [ {
-        "url": "http://hl7.org.au/fhir/StructureDefinition/indigenous-status",
-        "valueCoding": {
-          "system": "https://healthterminologies.gov.au/fhir/CodeSystem/australian-indigenous-status-1",
-          "code": "1",
-          "display": "Aboriginal but not Torres Strait Islander origin"
-        }
-      }, {
-        "url": "http://hl7.org/fhir/StructureDefinition/individual-genderIdentity",
-        "extension": [ {
-          "url": "value",
-          "valueCodeableConcept": {
-            "coding": [ {
-              "system": "http://snomed.info/sct",
-              "code": "446141000124107",
-              "display": "Identifies as female gender"
-            } ]
-          }
-        } ]
-      }, {
-        "url": "http://hl7.org/fhir/StructureDefinition/individual-pronouns",
-        "extension": [ {
-          "url": "value",
-          "valueCodeableConcept": {
-            "coding": [ {
-              "system": "http://loinc.org",
-              "code": "LA29519-8",
-              "display": "she/her/her/hers/herself"
-            } ]
-          }
-        } ]
-      }, {
-        "url": "http://hl7.org/fhir/StructureDefinition/individual-recordedSexOrGender",
-        "extension": [ {
-          "url": "type",
-          "valueCodeableConcept": {
-            "coding": [ {
-              "system": "http://snomed.info/sct",
-              "code": "1515311000168102",
-              "display": "Biological sex at birth"
-            } ]
-          }
-        }, {
-          "url": "value",
-          "valueCodeableConcept": {
-            "coding": [ {
-              "system": "http://snomed.info/sct",
-              "code": "248152002",
-              "display": "Female"
-            } ]
-          }
-        } ]
-      } ],
-      "identifier": [ {
-        "extension": [ {
-          "url": "http://hl7.org.au/fhir/StructureDefinition/ihi-status",
-          "valueCoding": {
-            "system": "https://healthterminologies.gov.au/fhir/CodeSystem/ihi-status-1",
-            "code": "active"
-          }
-        }, {
-          "url": "http://hl7.org.au/fhir/StructureDefinition/ihi-record-status",
-          "valueCoding": {
-            "system": "https://healthterminologies.gov.au/fhir/CodeSystem/ihi-record-status-1",
-            "code": "verified",
-            "display": "verified"
-          }
-        } ],
-        "type": {
-          "coding": [ {
-            "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
-            "code": "NI"
-          } ],
-          "text": "IHI"
-        },
-        "system": "http://ns.electronichealth.net.au/id/hi/ihi/1.0",
-        "value": "8003608000311662"
-      }, {
-        "type": {
-          "coding": [ {
-            "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
-            "code": "MC"
-          } ],
-          "text": "Medicare Number"
-        },
-        "system": "http://ns.electronichealth.net.au/id/medicare-number",
-        "value": "69518252411"
-      } ],
-      "name": [ {
-        "use": "official",
-        "family": "BARATZ",
-        "given": [ "Toni" ]
-      } ],
-      "telecom": [ {
-        "system": "phone",
-        "value": "0870101270",
-        "use": "home"
-      }, {
-        "system": "phone",
-        "value": "0491570156",
-        "use": "mobile"
-      }, {
-        "system": "phone",
-        "value": "0870108006",
-        "use": "work"
-      } ],
-      "gender": "female",
-      "birthDate": "1978-06-16",
-      "address": [ {
-        "line": [ "24 Law Cir" ],
-        "city": "Bassendean",
-        "state": "WA",
-        "postalCode": "6054",
-        "country": "AU"
-      } ]
-    },
-    "search": {
-      "mode": "match"
-    }
-  } ]
-}             
-```
-
-or for example:
-
-```
-curl -X GET https://hapi-fhir.au.localhost/fhir/Organization?_id=adv-hearing-care \
+curl -X GET https://provider-directory.au.localhost/fhir/Organization?_id=adv-hearing-care \
   -H 'Content-Type: application/fhir+json' \
   -H "Authorization: Bearer $ACCESS_TOKEN"
 ```
