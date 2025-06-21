@@ -78,6 +78,8 @@ Fine-grained access control is when access to resources is granted or denied bas
 
 For example, a Practitioner must be granted the Organisation Maintenance Officer role (RBAC) and have a membership relationship with an Organisation (ReBAC) in order to maintain healthcare service information on an Organisation's behalf.
 
+> We need an Authorisation Service that can provide fine-grained access control for FHIR resources in a Provider Directory.
+
 ![divider](./divider.png)
 
 ## ❯ Authorisation Service
