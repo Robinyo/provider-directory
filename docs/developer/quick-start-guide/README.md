@@ -45,7 +45,7 @@ https://provider-directory.au.localhost/fhir
 You should see something like:
 
 <p align="center">
-  <img src="./hapi-fhir-openapi-ui.png" alt="FHIR Server OpenAPI UI"/>
+  <img src="./provider-directory-openapi-ui.png" alt="FHIR Server OpenAPI UI"/>
 </p>
 
 To stop the services:
