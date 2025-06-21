@@ -36,10 +36,17 @@ docker compose up
 
 #### OpenAPI (Swagger)
 
-Navigate to the OpenAPI (Swagger) UI for the FHIR Server:
+Navigate to the OpenAPI (Swagger) UI for the FHIR Server.
+
+For example:
 
 ```
 https://provider-directory.au.localhost/fhir
+https://provider-directory.au.localhost/fhir/swagger-ui/?page=Practitioner
+https://provider-directory.au.localhost/fhir/swagger-ui/?page=PractitionerRole
+https://provider-directory.au.localhost/fhir/swagger-ui/?page=Organization
+https://provider-directory.au.localhost/fhir/swagger-ui/?page=HealthcareService
+https://provider-directory.au.localhost/fhir/swagger-ui/?page=Location
 ```
 
 You should see something like:
