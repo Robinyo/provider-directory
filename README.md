@@ -5,16 +5,14 @@
 <h1 align="center">Provider Directory Starter Project</h1>
 
 <p align="center">
-  The goal of this project is to demonstrate fine-grained access control for FHIR resources in a Provider Directory. <br>
+  The goal of this project is to demonstrate **fine-grained access** control for FHIR resources in a Provider Directory. <br>
 </p>
 
 <p align="center">
   TLS is used to encrypt <b>data in transit</b> and AES to encrypt <b>data at rest</b>.
 </p>
 
-<p align="center">
-  The OAuth 2.0 Authorization Server supports the Client Credentials grant and the Token Exchange grant. <br>
-</p>
+
 
 ## ❯ Introduction
 
@@ -82,11 +80,15 @@ Fine-grained access control is when access to resources is granted or denied bas
 
 For example, a Practitioner must be granted the Organisation Maintenance Officer role (RBAC) and have a membership relationship with an Organisation (ReBAC) in order to maintain healthcare service information on an Organisation's behalf.
 
+## ❯ Authorisation Service
 
+The Authorisation Service is comprised of the following components:
 
+- Security Token Service
+- Policy Decision Point
+- Policy Enforcement Point
 
-
-
+The Security Token Service supports the Client Credentials grant and the Token Exchange grant.
 
 ![divider](./divider.png)
 
