@@ -12,7 +12,7 @@
   TLS is used to encrypt <b>data in transit</b> and AES to encrypt <b>data at rest</b>.
 </p>
 
-
+![divider](./divider.png)
 
 ## ❯ Introduction
 
