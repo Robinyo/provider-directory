@@ -5,7 +5,7 @@
 <h1 align="center">Provider Directory Starter Project</h1>
 
 <p align="center">
-  The goal of this project is to demonstrate secure access to FHIR resources in a Provider Directory. <br>
+  The goal of this project is to demonstrate fine-grained access control for FHIR resources in a Provider Directory. <br>
 </p>
 
 <p align="center">
@@ -28,21 +28,76 @@ These are individuals who provide, have provided, or are intending to provide he
 
 **Note:** Individual healthcare providers are also referred to as healthcare practitioners.
 
+### Organisational Healthcare Providers
+
+These are organisations that deliver healthcare services. Examples include hospitals, day procedure centers, aged care facilities, and pathology or radiology services.
+
+### Healthcare Identifiers
+
+Healthcare Provider Identifiers (HPI-I and HPI-O) are used to uniquely identify individuals and organisations involved in the delivery of healthcare services.
+
+## ❯ Healthcare Provider Directory
+
+A healthcare provider directory is a repository of information (where data is stored and maintained) about healthcare providers.
+
+### FHIR Resources
+
+There are a number of provider-related FHIR resources.
+
+For example:
+
+- Practioner
+- Practioner Role
+- Organization
+- Healthcare Service
+- Location
+
+**Note:** As per the FHIR specifcation, the spelling of FHIR resource names (like "Organization") follows the American English standard.
+
+### FHIR Operations
+
+FHIR operations are interactions defined by the FHIR standard for manipulating healthcare data. They follow a RESTful paradigm, allowing for Create, Read, Update, Delete (CRUD) and Search actions on FHIR resources.
+
+For example, to read Organisation information:
+
+```
+GET /Organization/{id}
+```
+
+## ❯ Access Control
+
+### Coarse-grained access control
+
+How do we define coarse-grained access control?
+
+Coarse-grained access control is when access to resources is granted or denied based on broad, general criteria, often at the role (RBAC) level. However, one or more scopes or claims may also be required.
+
+### Fine-grained access control
+
+How do we define fine-grained access control?
+
+Fine-grained access control is when access to resources is granted or denied based on multiple conditions and may combine different access control mechanisms (ABAC, RBAC, ReBAC, UBAC).
+
+**In the Australian Healthcare context, support for fine-grained access control is often required.**
+
+For example, a Practitioner must be granted the Organisation Maintenance Officer role (RBAC) and have a membership relationship with an Organisation (ReBAC) in order to maintain healthcare service information on an Organisation's behalf.
 
 
+
+
+
+
+
+![divider](./divider.png)
 
 ## ❯ Documentation
 
 * Developer Documentation
   * [Quick Start Guide](./docs/developer/quick-start-guide/README.md)
 
-![divider](./divider.png)
-
 ## ❯ Resources
 
 * Rob Ferguson's blog: [Healthcare Provider Directory Access Control](https://rob-ferguson.me/healthcare-provider-directory-access-control/)
-
-![divider](./divider.png)
 
 ## ❯ References
 
