@@ -5,7 +5,7 @@
 <h1 align="center">Healthcare Provider Directory Starter Project</h1>
 
 <p align="center">
-  The goal of this project is to demonstrate how an <b>Authorisation Service</b> can provide fine-grained access control for FHIR resources in a Healthcare <b>Provider Directory</b>. <br>
+  The goal of this project is to demonstrate how an <b>Authorisation Service</b> can provide fine-grained access control for FHIR resources in a <b>Healthcare Provider Directory</b>. <br>
 </p>
 
 ## ❯ Introduction
