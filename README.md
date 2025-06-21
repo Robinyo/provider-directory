@@ -5,7 +5,7 @@
 <h1 align="center">Provider Directory Starter Project</h1>
 
 <p align="center">
-  The goal of this project is to demonstrate how an <b>Authorisation Service</b> can provide fine-grained access control for FHIR resources in a Provider Directory. <br>
+  The goal of this project is to demonstrate how an <b>Authorisation Service</b> can provide fine-grained access control for FHIR resources in a <b>Provider Directory</b>. <br>
 </p>
 
 ## ❯ Introduction
@@ -101,6 +101,8 @@ Policies are authored in [Rego](https://www.openpolicyagent.org/docs/policy-lang
 
 * Developer Documentation
   * [Quick Start Guide](./docs/developer/quick-start-guide/README.md)
+
+![divider](./divider.png)
 
 ## ❯ Resources
 
