@@ -34,6 +34,8 @@ These are organisations that deliver healthcare services. Examples include hospi
 
 Healthcare Provider Identifiers (HPI-I and HPI-O) are used to uniquely identify individuals and organisations involved in the delivery of healthcare services.
 
+![divider](./divider.png)
+
 ## ❯ Healthcare Provider Directory
 
 A healthcare provider directory is a repository of information (where data is stored and maintained) about healthcare providers.
@@ -62,6 +64,8 @@ For example, to read Organisation information:
 GET /Organization/{id}
 ```
 
+![divider](./divider.png)
+
 ## ❯ Access Control
 
 ### Coarse-grained access control
@@ -84,11 +88,16 @@ For example, a Practitioner must be granted the Organisation Maintenance Officer
 
 The Authorisation Service is comprised of the following components:
 
-- Security Token Service
-- Policy Decision Point
+- Authorization Server (that supports the Token endpoint and the **Client Credentials grant**)
+- Security Token Service (that supports the Token endpoint and the **Token Exchange grant**)
 - Policy Enforcement Point
+- Policy Decision Point
 
-The Security Token Service supports the Client Credentials grant and the Token Exchange grant.
+Policies are enforced by the API Gateway ([APISIX](https://apisix.apache.org/docs/)).
+
+Policy decisions (evaluation) are performed by the general purpose policy engine ([Open Policy Agent](https://www.openpolicyagent.org/docs))
+
+Policies are authored in [Rego](https://www.openpolicyagent.org/docs/policy-language).
 
 ![divider](./divider.png)
 
