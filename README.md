@@ -66,7 +66,7 @@ GET /Organization/{id}
 
 How do we define coarse-grained access control?
 
-Coarse-grained access control is when access to resources is granted or denied based on broad, general criteria, often at the role (RBAC) level. However, one or more scopes or claims may also be required.
+Coarse-grained access control is when access to resources is granted or denied based on broad, general criteria, often at the role (RBAC) level.
 
 ### Fine-grained access control
 
@@ -76,7 +76,7 @@ Fine-grained access control is when access to resources is granted or denied bas
 
 **In the Australian Healthcare context, support for fine-grained access control is often required.**
 
-For example, a Practitioner must be granted the Organization Maintenance Officer (OMO) role (RBAC) and have a [membership](https://rob-ferguson.me/parties-roles-and-relationships/) relationship with an Organization (ReBAC) in order to maintain Healthcare Service information on an Organization's behalf.
+For example, a Practitioner must be granted the Organization Maintenance Officer (OMO) role (RBAC) and have a [membership](https://rob-ferguson.me/parties-roles-and-relationships/) relationship (ReBAC) with an Organization in order to maintain Healthcare Service information on an Organization's behalf.
 
 ![divider](./divider.png)
 
