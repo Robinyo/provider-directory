@@ -84,8 +84,8 @@ For example, a Practitioner must be granted the Organisation Maintenance Officer
 
 The Authorisation Service is comprised of the following components:
 
-- OAuth 2.0 Authorization Server (that supports the Token endpoint and the **Client Credentials grant**)
-- OAuth 2.0 Security Token Service (that supports the Token endpoint and the **Token Exchange grant**)
+- OAuth 2.0 Authorization Server (that supports the **Client Credentials grant**)
+- OAuth 2.0 Security Token Service (that supports the **Token Exchange grant**)
 - Policy Enforcement Point
 - Policy Decision Point
 
