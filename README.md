@@ -89,6 +89,8 @@ The Authorisation Service is comprised of the following components:
 - Policy Enforcement Point
 - Policy Decision Point
 
+[Keycloak](https://www.keycloak.org/) provides support for the **Client Credentials grant** and the **Token Exchange grant**.
+
 Policies are enforced by the API Gateway ([APISIX](https://apisix.apache.org/docs/)).
 
 Policy decisions (evaluation) are performed by the general purpose Policy Engine ([Open Policy Agent](https://www.openpolicyagent.org/docs)).
