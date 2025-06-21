@@ -16,7 +16,20 @@
   The OAuth 2.0 Authorization Server supports the Client Credentials grant and the Token Exchange grant. <br>
 </p>
 
-![divider](./divider.png)
+## ❯ Introduction
+
+In the Australian context, a healthcare provider can be defined as an individual or organisation involved in the delivery of healthcare services.
+
+This broad definition encompasses a range of individuals, including doctors, nurses, and other health professionals, as well as organisations like hospitals, clinics, and aged care facilities.
+
+### Individual Healthcare Providers
+
+These are individuals who provide, have provided, or are intending to provide healthcare services. This includes registered health professionals such as medical practitioners, nurses, dentists, pharmacists, and allied health professionals.
+
+**Note:** Individual healthcare providers are also referred to as healthcare practitioners.
+
+
+
 
 ## ❯ Documentation
 
