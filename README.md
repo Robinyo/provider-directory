@@ -95,9 +95,9 @@ Policy decisions (evaluation) are performed by the general purpose Policy Engine
 
 Policies are authored in [Rego](https://www.openpolicyagent.org/docs/policy-language).
 
-Reference data (e.g., Roles, Permissions, Relationships) is loaded when the Policy Engine service is healthy.
+Reference data (e.g., Roles, Permissions, Relationships) is loaded when the Policy Engine is healthy.
 
-Policies are loaded when the Policy Engine service is healthy and the Reference data has been loaded.
+Policies are loaded when the Policy Engine is healthy and all Reference data has been loaded.
 
 ![divider](./divider.png)
 
