@@ -72,8 +72,8 @@ For example:
 
 - Responsible Officer (RO)
 - Organisation Maintenance Officer (OMO)
-- Authorised employee
-- Individual health care provider
+- Authorised Employee
+- Individual Health Care Provider
 - Contracted Service Provider (CSP)
 - General Supporting Organisation (GSO)
 
