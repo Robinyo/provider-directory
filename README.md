@@ -99,7 +99,7 @@ Policies are authored in [Rego](https://www.openpolicyagent.org/docs/policy-lang
 
 Reference data (e.g., Roles, Permissions, Relationships) is loaded when the Policy Engine is healthy.
 
-Policies are loaded when the Policy Engine is healthy and all Reference data has been loaded.
+Policies are loaded when the Policy Engine is healthy and all reference data has been loaded.
 
 ![divider](./divider.png)
 
