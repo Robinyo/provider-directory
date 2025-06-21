@@ -68,6 +68,15 @@ How do we define coarse-grained access control?
 
 Coarse-grained access control is when access to resources is granted or denied based on broad, general criteria, often at the role (RBAC) level.
 
+For example:
+
+- Responsible Officer (RO)
+- Organisation Maintenance Officer (OMO)
+- Authorised employee
+- Individual health care provider
+- Contracted Service Provider (CSP)
+- General Supporting Organisation (GSO)
+
 ### Fine-grained access control
 
 How do we define fine-grained access control?
@@ -76,7 +85,7 @@ Fine-grained access control is when access to resources is granted or denied bas
 
 **In the Australian Healthcare context, support for fine-grained access control is often required.**
 
-For example, a Practitioner must be granted the Organization Maintenance Officer (OMO) role (RBAC) and have a [membership](https://rob-ferguson.me/parties-roles-and-relationships/) relationship (ReBAC) with an Organization in order to maintain Healthcare Service information on an Organization's behalf.
+For example, a Practitioner must be granted the Organisation Maintenance Officer (OMO) role and have a [membership](https://rob-ferguson.me/parties-roles-and-relationships/) relationship with an Organisation in order to maintain Healthcare Service information on an Organisation's behalf.
 
 ![divider](./divider.png)
 
@@ -222,7 +231,7 @@ Policies are loaded when the Policy Engine is healthy and all reference data has
 * Styra Academy courses: [OPA Policy Authoring](https://academy.styra.com/courses/opa-rego)
 * Open Policy Agent: [Ecosystem](https://www.openpolicyagent.org/ecosystem/by-feature/learning-rego)
 
-### HAPI FHIR
+### Provider Directory
 
 * HAPI FHIR: [Website](https://hapifhir.io/)
 * HAPI FHIR: [Documentation](https://hapifhir.io/hapi-fhir/docs/)
@@ -233,7 +242,10 @@ Policies are loaded when the Policy Engine is healthy and all reference data has
 * HL7 Australia: [Terminology](https://confluence.hl7.org/display/HAFWG/Terminology)
 * ADHA: [National Clinical Terminology Service](https://www.healthterminologies.gov.au/)
 
-### Miscellaneous 
+### Australian Government 
 
 * ADHA: [Strategies and plans](https://www.digitalhealth.gov.au/about-us/strategies-and-plans)
 * ADHA: [Digital Health Standards Catalogue](https://developer.digitalhealth.gov.au/standards/search?keywords=&category=All&organisation=All)
+* Services Australia: [About the Healthcare Provider Directory](https://www.servicesaustralia.gov.au/about-healthcare-provider-directory?context=20)
+* Services Australia: [Register for Healthcare Identifiers (HI) Service](https://www.servicesaustralia.gov.au/register-for-healthcare-identifiers-hi-service?context=20)
+* Services Australia: [Roles in the HI Service](https://www.servicesaustralia.gov.au/roles-healthcare-identifiers-service?context=20)
