@@ -91,7 +91,7 @@ The Authorisation Service is comprised of the following components:
 
 Policies are enforced by the API Gateway ([APISIX](https://apisix.apache.org/docs/)).
 
-Policy decisions (evaluation) are performed by the general purpose policy engine ([Open Policy Agent](https://www.openpolicyagent.org/docs))
+Policy decisions (evaluation) are performed by the general purpose Policy Engine ([Open Policy Agent](https://www.openpolicyagent.org/docs)).
 
 Policies are authored in [Rego](https://www.openpolicyagent.org/docs/policy-language).
 
