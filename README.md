@@ -76,7 +76,7 @@ Fine-grained access control is when access to resources is granted or denied bas
 
 **In the Australian Healthcare context, support for fine-grained access control is often required.**
 
-For example, a Practitioner must be granted the Organisation Maintenance Officer role (RBAC) and have a membership relationship with an Organisation (ReBAC) in order to maintain healthcare service information on an Organisation's behalf.
+For example, a Practitioner must be granted the Organization Maintenance Officer (OMO) role (RBAC) and have a [membership](https://rob-ferguson.me/parties-roles-and-relationships/) relationship with an Organization (ReBAC) in order to maintain Healthcare Service information on an Organization's behalf.
 
 ![divider](./divider.png)
 
