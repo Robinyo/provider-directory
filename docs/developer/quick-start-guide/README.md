@@ -64,7 +64,6 @@ To remove the data volumes:
 
 ```
 docker volume rm backend_postgres_data
-docker volume rm backend_cache
 ```
 
 ### Call the Provider Directory API

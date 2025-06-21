@@ -5,7 +5,15 @@
 <h1 align="center">Provider Directory Starter Project</h1>
 
 <p align="center">
-  The goal of this project is to demonstrate secure access to FHIR resources in a Provider Directory.<br>
+  The goal of this project is to demonstrate secure access to FHIR resources in a Provider Directory. <br>
+</p>
+
+<p align="center">
+  TLS is used to encrypt <b>data in transit</b> and AES to encrypt <b>data at rest</b>.
+</p>
+
+<p align="center">
+  The OAuth 2.0 Authorization Server supports the Client Credentials grant and the Token Exchange grant. <br>
 </p>
 
 ![divider](./divider.png)
