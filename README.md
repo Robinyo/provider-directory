@@ -47,6 +47,7 @@
 * AU Core FHIR Implementation Guide: [AU Core - 1.0.0-preview](https://hl7.org.au/fhir/core/1.0.0-preview/index.html)
 * AU Core FHIR Implementation Guide: [Testing FAQs](https://confluence.hl7.org/display/HAFWG/AU+Core+FHIR+IG+Testing+FAQs)
 * Sparked AU Core Test Data: [Postman collection](https://github.com/hl7au/au-fhir-test-data/blob/master/Postman/Sparked%20AUCore%20Test%20Data.postman_collection.json)
+* HL7 AU: [Australian Provider Directory Implementation Guide](https://hl7.org.au/fhir/pd/pd2/index.html)
 
 ### SMART on FHIR
 
