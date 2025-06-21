@@ -13,13 +13,13 @@ CURL_OPTS="--silent --show-error --fail"
 # curl $CURL_OPTS -XDELETE "http://${OPA_SERVICE_HOST}:${OPA_SERVICE_ADMIN_PORT}/v1/data/users" || true
 
 # Policy
-policyData=$(cat /organization.rego)
-curl $CURL_OPTS -XPUT "http://${OPA_SERVICE_HOST}:${OPA_SERVICE_ADMIN_PORT}/v1/policies/example" \
+policyData=$(cat /policies/organization.rego)
+curl $CURL_OPTS -XPUT "http://${OPA_SERVICE_HOST}:${OPA_SERVICE_ADMIN_PORT}/v1/policies/organization" \
 --header 'Content-Type: text/plain' \
 --data-raw "$policyData"
 # Used --data-raw to avoid "rego_parse_error" "unexpected eof token"
 
 # Data
-# curl $CURL_OPTS -XPUT "http://${OPA_SERVICE_HOST}:${OPA_SERVICE_ADMIN_PORT}/v1/data/users" \
+# curl $CURL_OPTS -XPUT "http://${OPA_SERVICE_HOST}:${OPA_SERVICE_ADMIN_PORT}/v1/data/rbac" \
 # --header 'Content-Type: application/json' \
-# --data @/rbac.json
+# --data @/reference-data/rbac.json

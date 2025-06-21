@@ -26,6 +26,20 @@ routes:
     methods: [ "GET", "HEAD" ]
     upstream_id: 1
 
+  - name: provider-directory-api-organization-read
+    uri: /fhir/Organization*
+    methods: [ "GET" ]
+    upstream_id: 1
+    plugins:
+      opa:
+        host: "opa:8181"
+        policy: "organization"
+
+  - name: provider-directory-api-organization-write
+    uri: /fhir/Organization*
+    methods: [ "POST", "PUT", "PATCH", "DELETE" ]
+    upstream_id: 1
+
 ssls:
   -
     cert: |

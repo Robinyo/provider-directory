@@ -53,7 +53,6 @@ docker container logs postgres
 docker container logs pgadmin
 
 docker logs --tail 100 apisix
-docker logs --tail 100 oauth2-proxy
 docker logs --tail 100 keycloak
 ```
 
@@ -113,14 +112,7 @@ Clean and build:
 ```
 docker system prune
 docker container prune && docker volume prune && docker network prune
-
-# APISIX
-docker compose -f docker-compose-apisix.yml build
-
-# OR
-
-# Nginx
-docker compose -f docker-compose-nginx.yml build
+docker compose build
 ```
 
 Misc:
@@ -128,8 +120,6 @@ Misc:
 ```
 docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' <container_name_or_id>
 docker container ps -a
-docker compose -f docker-compose-apisix.yml ps
-docker compose -f docker-compose-nginx.yml ps
 docker container ls
 docker image ls
 docker volume ls

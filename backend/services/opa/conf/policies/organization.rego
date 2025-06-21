@@ -1,4 +1,4 @@
-package example
+package organisation
 
 default allow := false
 
