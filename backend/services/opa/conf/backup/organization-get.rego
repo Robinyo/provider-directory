@@ -1,7 +1,5 @@
 package organisation
 
-import input.request
-
 default allow := false
 
 allow if {

@@ -2,24 +2,22 @@
 set -e
 set -x
 
+export OPA_SERVICE_PROTOCOL=${OPA_SERVICE_PROTOCOL:-http}
+# export OPA_SERVICE_PROTOCOL=${OPA_SERVICE_PROTOCOL:-https}
 export OPA_SERVICE_HOST=${OPA_SERVICE_HOST:-opa}
 export OPA_SERVICE_ADMIN_PORT=${OPA_SERVICE_ADMIN_PORT:-8181}
+# export OPA_SERVICE_ADMIN_PORT=${OPA_SERVICE_ADMIN_PORT:-8282}
 
-CURL_OPTS="--silent --show-error --fail"
+CURL_OPTS=" --silent --show-error --fail --insecure"
 
-# Clean up
-# curl $CURL_OPTS -XDELETE "http://${OPA_SERVICE_HOST}:${OPA_SERVICE_ADMIN_PORT}/v1/policies/example" || true
+# Policy - https://www.openpolicyagent.org/docs/rest-api#policy-api
 
-# curl $CURL_OPTS -XDELETE "http://${OPA_SERVICE_HOST}:${OPA_SERVICE_ADMIN_PORT}/v1/data/users" || true
+curl $CURL_OPTS -X PUT "${OPA_SERVICE_PROTOCOL}://${OPA_SERVICE_HOST}:${OPA_SERVICE_ADMIN_PORT}/v1/policies/organization" \
+  -H 'Content-Type: text/plain' \
+  -d 'package organisation
 
-# Policy
-policyData=$(cat /policies/organization.rego)
-curl $CURL_OPTS -XPUT "http://${OPA_SERVICE_HOST}:${OPA_SERVICE_ADMIN_PORT}/v1/policies/organization" \
---header 'Content-Type: text/plain' \
---data-raw "$policyData"
-# Used --data-raw to avoid "rego_parse_error" "unexpected eof token"
+default allow := false
 
-# Data
-# curl $CURL_OPTS -XPUT "http://${OPA_SERVICE_HOST}:${OPA_SERVICE_ADMIN_PORT}/v1/data/rbac" \
-# --header 'Content-Type: application/json' \
-# --data @/reference-data/rbac.json
+allow if {
+	request.method == "GET"
+}'

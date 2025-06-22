@@ -36,11 +36,29 @@ services:
     build:
       context: ./services/opa
       dockerfile: Dockerfile
-    command: [ "run", "--server", "--addr", ":8181", "--log-level", "debug" ]
+
+    # - "--set=status.console=true"
+
+    # - "--tls-ca-cert-file=/certs/ca.crt"
+    # - "--tls-cert-file=/certs/tls.crt"
+    # - "--tls-private-key-file=/certs/tls.key"
+    # - "--addr=0.0.0.0:8282"
+
+    command:
+      - "run"
+      - "--server"
+      - "--addr=0.0.0.0:8181"
+      - "--log-format=json-pretty"
+      - "--log-level=debug"
+      - "--set=decision_logs.console=true"
     restart: unless-stopped
+    # volumes:
+    #   - '${PWD}/certs/rootCA.pem:/certs/ca.crt'
+    #   - '${PWD}/certs/cert.pem:/certs/tls.crt'
+    #   - '${PWD}/certs/key.pem:/certs/tls.key'
     ports:
-      # - 8181
       - 8181:8181
+      # - 8282:8282
     networks:
       - frontend
       - backend
@@ -50,8 +68,8 @@ services:
     user: root
     entrypoint: /bin/sh -c "apk add --no-cache jq && /initopa.sh"
     volumes:
-      - ${PWD}/services/opa/conf/rbac.json:/rbac.json
-      - ${PWD}/services/opa/conf/organization.rego:/organization.rego
+      # - ${PWD}/services/opa/conf/reference-data/roles-and-permissions.json:/roles-and-permissions.json
+      # - ${PWD}/services/opa/conf/policies/organization.rego:/organization.rego
       - ${PWD}/services/opa/conf/initopa.sh:/initopa.sh
     depends_on:
       opa:
@@ -170,7 +188,8 @@ services:
       PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL}
       PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}
     depends_on:
-      # keycloak.au.localhost:
+      keycloak.au.localhost:
+        condition: service_healthy
       postgres:
         condition: service_healthy
     networks:
