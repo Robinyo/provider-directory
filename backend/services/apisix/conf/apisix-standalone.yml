@@ -34,8 +34,8 @@ routes:
       opa:
         host: "http://opa:8181"
         # host: "https://opa:8282"
-        ssl_verify: false
-        with_route: true
+        # ssl_verify: false
+        # with_route: true
         # policy: "organization"
         # policy: "organization.allow"
         policy: "organization/allow"
