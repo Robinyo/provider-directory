@@ -1,9 +1,7 @@
 package organisation
 
-import input.request
-
 default allow := false
 
 allow if {
-	request.method == "GET"
+  request.method == "GET"
 }

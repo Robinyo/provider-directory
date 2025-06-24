@@ -49,6 +49,8 @@ docker container logs [name]
 For example:
 
 ```
+docker container logs opa
+docker container logs apisix
 docker container logs postgres
 docker container logs pgadmin
 

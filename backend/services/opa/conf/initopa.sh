@@ -17,6 +17,8 @@ curl $CURL_OPTS -X PUT "${OPA_SERVICE_PROTOCOL}://${OPA_SERVICE_HOST}:${OPA_SERV
   -H 'Content-Type: text/plain' \
   -d 'package organisation
 
+import input.request
+
 default allow := false
 
 allow if {
