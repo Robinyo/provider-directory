@@ -1,4 +1,4 @@
-package organisation
+package organization
 
 default allow := false
 

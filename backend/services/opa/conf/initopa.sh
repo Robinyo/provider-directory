@@ -15,12 +15,15 @@ CURL_OPTS=" --silent --show-error --fail"
 
 curl $CURL_OPTS -X PUT "${OPA_SERVICE_PROTOCOL}://${OPA_SERVICE_HOST}:${OPA_SERVICE_ADMIN_PORT}/v1/policies/organization" \
   -H 'Content-Type: text/plain' \
-  -d 'package organisation
+  -d 'package organization
+
+import rego.v1
 
 import input.request
 
-default allow := false
-
-allow if {
+result := {
+    "allow": true,
+    "reason": "request.method == GET",
+} if {
 	request.method == "GET"
 }'
