@@ -31,7 +31,7 @@ curl -X GET https://provider-directory.au.localhost/v1/policies?pretty=true \
 
 ```
 curl -X GET https://provider-directory.au.localhost/v1/policies/organization?pretty=true \
-  -H 'Content-Type: application/fhir+json'
+  -H 'Content-Type: application/json'
 ```
 
 #### Create or Update a Policy
