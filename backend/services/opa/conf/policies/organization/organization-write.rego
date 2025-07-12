@@ -6,6 +6,6 @@ import input.request
 
 default allow := false
 
-allow if {
-	request.method == "GET"
-}
+methods := "POST PUT PATCH DELETE"
+
+allow if contains(methods, request.method)
