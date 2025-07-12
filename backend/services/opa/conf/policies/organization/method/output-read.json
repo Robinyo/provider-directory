@@ -1,3 +1,4 @@
 {
-  "allow": true
+  "allow": true,
+  "methods": "GET HEAD"
 }

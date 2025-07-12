@@ -2,10 +2,8 @@ package organization.read
 
 import rego.v1
 
-import input.request
+methods := "GET HEAD"
 
 default allow := false
 
-allow if {
-	request.method == "GET"
-}
+allow if contains(methods, input.request.method)
