@@ -4,8 +4,17 @@ upstreams:
     type: roundrobin
     nodes:
       "provider-directory:8080": 1
+  - name: opa
+    id: 2
+    type: roundrobin
+    nodes:
+      "opa:8181": 1
 
 routes:
+  - name: opa-api
+    uri: /v1/*
+    upstream_id: 2
+
   - name: provider-directory-web-testpage-overlay
     uri: /*
     methods: [ "GET", "HEAD" ]
@@ -36,9 +45,7 @@ routes:
         # host: "https://opa:8282"
         # ssl_verify: false
         # with_route: true
-        # policy: "organization"
-        # policy: "organization.allow"
-        policy: "organization/allow"
+        policy: "organization"
 
   - name: provider-directory-api-organization-write
     uri: /fhir/Organization*

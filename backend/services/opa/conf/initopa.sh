@@ -14,16 +14,17 @@ CURL_OPTS=" --silent --show-error --fail"
 # Policy - https://www.openpolicyagent.org/docs/rest-api#policy-api
 
 curl $CURL_OPTS -X PUT "${OPA_SERVICE_PROTOCOL}://${OPA_SERVICE_HOST}:${OPA_SERVICE_ADMIN_PORT}/v1/policies/organization" \
-  -H 'Content-Type: text/plain' \
-  -d 'package organization
+  --header 'Content-Type: text/plain' \
+  --data-binary 'package organization
 
 import rego.v1
 
 import input.request
 
-result := {
-    "allow": true,
-    "reason": "request.method == GET",
-} if {
+default allow := false
+
+allow if {
 	request.method == "GET"
 }'
+
+# cURL's -d/--data flag removes newline characters from input files. Use the --data-binary flag instead.
