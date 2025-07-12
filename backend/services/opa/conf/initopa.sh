@@ -21,13 +21,11 @@ curl $CURL_OPTS -X PUT "${OPA_SERVICE_PROTOCOL}://${OPA_SERVICE_HOST}:${OPA_SERV
 
 import rego.v1
 
-import input.request
+methods := "GET HEAD"
 
 default allow := false
 
-allow if {
-	request.method == "GET"
-}'
+allow if contains(methods, input.request.method)'
 
 # organization.write
 
@@ -37,12 +35,10 @@ curl $CURL_OPTS -X PUT "${OPA_SERVICE_PROTOCOL}://${OPA_SERVICE_HOST}:${OPA_SERV
 
 import rego.v1
 
-import input.request
+methods := "POST PUT PATCH DELETE"
 
 default allow := false
 
-allow if {
-	request.method == "PUT"
-}'
+allow if contains(methods, input.request.method)'
 
 # cURL's -d/--data flag removes newline characters from input files. Use the --data-binary flag instead.

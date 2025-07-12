@@ -1,0 +1,4 @@
+{
+  "allow": true,
+  "methods": "POST PUT PATCH DELETE"
+}
