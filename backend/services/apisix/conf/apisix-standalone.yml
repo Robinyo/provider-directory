@@ -44,9 +44,6 @@ routes:
     plugins:
       opa:
         host: "http://opa:8181"
-        # host: "https://opa:8282"
-        # ssl_verify: false
-        # with_route: true
         policy: "organization/read"
 
   - name: provider-directory-api-organization-write
