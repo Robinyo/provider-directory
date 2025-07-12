@@ -35,9 +35,11 @@ routes:
     methods: [ "GET", "HEAD" ]
     upstream_id: 1
 
+    # organization
+
   - name: provider-directory-api-organization-read
     uri: /fhir/Organization*
-    methods: [ "GET" ]
+    methods: [ "GET", "HEAD" ]
     upstream_id: 1
     plugins:
       opa:
@@ -45,7 +47,7 @@ routes:
         # host: "https://opa:8282"
         # ssl_verify: false
         # with_route: true
-        policy: "organization"
+        policy: "organization/read"
 
   - name: provider-directory-api-organization-write
     uri: /fhir/Organization*

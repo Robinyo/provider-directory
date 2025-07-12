@@ -1,4 +1,6 @@
-package organization
+package organization.read
+
+import rego.v1
 
 import input.request
 
