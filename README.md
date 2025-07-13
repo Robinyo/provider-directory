@@ -172,6 +172,22 @@ Policies are loaded when the Policy Engine is healthy and all reference data has
 * Sparked AU Core Test Data: [Postman collection](https://github.com/hl7au/au-fhir-test-data/blob/master/Postman/Sparked%20AUCore%20Test%20Data.postman_collection.json)
 * HL7 AU: [Australian Provider Directory Implementation Guide](https://hl7.org.au/fhir/pd/pd2/index.html)
 
+### SMART on FHIR
+
+* HL7: [SMART App Launch](https://build.fhir.org/ig/HL7/smart-app-launch/)
+* SMART Health IT: [SMART on FHIR](https://docs.smarthealthit.org/)
+
+#### SMART on FHIR - Standalone Launch
+
+* Project Alvearie: [SMART App Launch](https://alvearie.io/blog/smart-keycloak/)
+* Project Alvearie: [Keycloak extensions for FHIR](https://github.com/Alvearie/keycloak-extensions-for-fhir)
+* Keycloak extensions for FHIR: [Upgrade to the Quarkus-based distribution](https://github.com/Alvearie/keycloak-extensions-for-fhir/issues/64)
+* Keycloak discussion: [Fine grained scope consent management](https://github.com/keycloak/keycloak/discussions/10303)
+
+#### SMART on FHIR - EHR Launch
+
+* GitHub: [Zedwerks - Keycloak extensions for FHIR](https://github.com/zedwerks/keycloak-smart-fhir)
+
 ### Keycloak
 
 * Keycloak docs: [Configuring Keycloak for production](https://www.keycloak.org/server/configuration-production)
