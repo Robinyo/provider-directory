@@ -16,8 +16,8 @@ CURL_OPTS=" --silent --show-error --fail"
 # organization.read
 
 curl $CURL_OPTS -X PUT "${OPA_SERVICE_PROTOCOL}://${OPA_SERVICE_HOST}:${OPA_SERVICE_ADMIN_PORT}/v1/policies/organization" \
-  --header 'Content-Type: text/plain' \
-  --data-binary 'package organization.read
+  --header 'Content-Type: application/json' \
+  --data 'package organization.read
 
 methods := "GET HEAD"
 path := "/fhir/Organization"
@@ -52,7 +52,7 @@ token := payload if {
 
 curl $CURL_OPTS -X PUT "${OPA_SERVICE_PROTOCOL}://${OPA_SERVICE_HOST}:${OPA_SERVICE_ADMIN_PORT}/v1/policies/organization" \
   --header 'Content-Type: text/plain' \
-  --data-binary 'package organization.write
+  --data 'package organization.write
 
 import rego.v1
 

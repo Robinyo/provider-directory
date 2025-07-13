@@ -50,10 +50,6 @@ routes:
     uri: /fhir/Organization*
     methods: [ "POST", "PUT", "PATCH", "DELETE" ]
     upstream_id: 1
-    plugins:
-      opa:
-        host: "http://opa:8181"
-        policy: "organization/write"
 
 ssls:
   -
