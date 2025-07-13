@@ -15,7 +15,7 @@ CURL_OPTS=" --silent --show-error --fail"
 
 # organization.read
 
-curl $CURL_OPTS -X PUT "${OPA_SERVICE_PROTOCOL}://${OPA_SERVICE_HOST}:${OPA_SERVICE_ADMIN_PORT}/v1/policies/organization" \
+curl --location --request PUT "${OPA_SERVICE_PROTOCOL}://${OPA_SERVICE_HOST}:${OPA_SERVICE_ADMIN_PORT}/v1/policies/organization" \
   --header 'Content-Type: application/json' \
   --data 'package organization.read
 
@@ -47,19 +47,3 @@ bearer_token := t if {
 token := payload if {
 	[_, payload, _] := io.jwt.decode(bearer_token)
 }'
-
-# organization.write
-
-curl $CURL_OPTS -X PUT "${OPA_SERVICE_PROTOCOL}://${OPA_SERVICE_HOST}:${OPA_SERVICE_ADMIN_PORT}/v1/policies/organization" \
-  --header 'Content-Type: text/plain' \
-  --data 'package organization.write
-
-import rego.v1
-
-methods := "POST PUT PATCH DELETE"
-
-default allow := false
-
-allow if contains(methods, input.request.method)'
-
-# cURL's -d/--data flag removes newline characters from input files. Use the --data-binary flag instead.
