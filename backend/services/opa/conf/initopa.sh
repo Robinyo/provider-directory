@@ -8,10 +8,6 @@ export OPA_SERVICE_HOST=${OPA_SERVICE_HOST:-opa}
 export OPA_SERVICE_ADMIN_PORT=${OPA_SERVICE_ADMIN_PORT:-8181}
 # export OPA_SERVICE_ADMIN_PORT=${OPA_SERVICE_ADMIN_PORT:-8282}
 
-# CURL_OPTS=" --silent --show-error --fail"
-# CURL_OPTS=" --silent --show-error --fail --insecure"
-# CURL_OPTS=" --location --request --silent --show-error --fail"
-
 # Policies
 
 # organization.read
