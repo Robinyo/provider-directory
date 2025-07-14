@@ -72,7 +72,7 @@ services:
       # - ${PWD}/services/opa/conf/policies/organization.rego:/organization.rego
       - ${PWD}/services/opa/conf/initopa.sh:/initopa.sh
     depends_on:
-      opa:
+      provider-directory:
         condition: service_started
     networks:
       - frontend
@@ -189,8 +189,6 @@ services:
       PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}
     depends_on:
       keycloak.au.localhost:
-        condition: service_healthy
-      postgres:
         condition: service_healthy
     networks:
       - backend
