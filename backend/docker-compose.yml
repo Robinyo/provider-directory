@@ -72,7 +72,7 @@ services:
       # - ${PWD}/services/opa/conf/policies/organization.rego:/organization.rego
       - ${PWD}/services/opa/conf/initopa.sh:/initopa.sh
     depends_on:
-      provider-directory:
+      opa:
         condition: service_started
     networks:
       - frontend
