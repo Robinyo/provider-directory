@@ -12,7 +12,7 @@ export OPA_SERVICE_ADMIN_PORT=${OPA_SERVICE_ADMIN_PORT:-8181}
 
 # organization.read
 
-curl --location --silent --show-error --fail --request PUT "${OPA_SERVICE_PROTOCOL}://${OPA_SERVICE_HOST}:${OPA_SERVICE_ADMIN_PORT}/v1/policies/organization" \
+curl --location --request PUT "${OPA_SERVICE_PROTOCOL}://${OPA_SERVICE_HOST}:${OPA_SERVICE_ADMIN_PORT}/v1/policies/organization" \
   --header 'Content-Type: text/plain' \
   --data 'package organization.read
 
@@ -47,7 +47,7 @@ token := payload if {
 
 # organization.write
 
-curl --location --silent --show-error --fail --request PUT "${OPA_SERVICE_PROTOCOL}://${OPA_SERVICE_HOST}:${OPA_SERVICE_ADMIN_PORT}/v1/policies/organization" \
+curl --location --request PUT "${OPA_SERVICE_PROTOCOL}://${OPA_SERVICE_HOST}:${OPA_SERVICE_ADMIN_PORT}/v1/policies/organization" \
   --header 'Content-Type: text/plain' \
   --data 'package organization.write
 
