@@ -200,6 +200,9 @@ services:
     build:
       context: ./services/keycloak
       dockerfile: Dockerfile
+
+    # '--log-level=INFO,io.vertx.ext.web.impl.RouterImpl:TRACE',
+
     command:
       [
         'start-dev',
@@ -208,7 +211,6 @@ services:
         '-Dkeycloak.migration.realmName=hapi-fhir-dev',
         '-Dkeycloak.migration.strategy=OVERWRITE_EXISTING',
         '-Dkeycloak.migration.file=/import/development-realm.json',
-        '--log-level=INFO,io.vertx.ext.web.impl.RouterImpl:TRACE',
       ]
     restart: unless-stopped
     healthcheck:
@@ -235,7 +237,6 @@ services:
       KC_DB_URL: jdbc:postgresql://keycloak-postgres:5432/${KEYCLOAK_DB}
       KC_DB_USERNAME: ${POSTGRES_USER}
       KC_DB_PASSWORD: ${POSTGRES_PASSWORD}
-      # KC_DB_PASSWORD: /run/secrets/pg_password
 
       KC_HEALTH_ENABLED: true
     env_file:

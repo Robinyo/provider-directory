@@ -35,7 +35,7 @@ routes:
     methods: [ "GET", "HEAD" ]
     upstream_id: 1
 
-    # organization
+    # Organization
 
   - name: provider-directory-api-organization-read
     uri: /fhir/Organization*
@@ -54,6 +54,54 @@ routes:
       opa:
         host: "http://opa:8181"
         policy: "organization/write"
+
+    # Practitioner
+
+  - name: provider-directory-api-practitioner-read
+    uri: /fhir/Practitioner*
+    methods: [ "GET", "HEAD" ]
+    upstream_id: 1
+
+  - name: provider-directory-api-practitioner-write
+    uri: /fhir/Practitioner*
+    methods: [ "POST", "PUT", "PATCH", "DELETE" ]
+    upstream_id: 1
+
+    # Practitioner Role
+
+  - name: provider-directory-api-practitioner-role-read
+    uri: /fhir/PractitionerRole*
+    methods: [ "GET", "HEAD" ]
+    upstream_id: 1
+
+  - name: provider-directory-api-practitioner-role-write
+    uri: /fhir/PractitionerRole*
+    methods: [ "POST", "PUT", "PATCH", "DELETE" ]
+    upstream_id: 1
+
+    # Location
+
+  - name: provider-directory-api-location-read
+    uri: /fhir/Location*
+    methods: [ "GET", "HEAD" ]
+    upstream_id: 1
+
+  - name: provider-directory-api-location-write
+    uri: /fhir/Location*
+    methods: [ "POST", "PUT", "PATCH", "DELETE" ]
+    upstream_id: 1
+
+    # Healthcare Service
+
+  - name: provider-directory-api-healthcare-service-read
+    uri: /fhir/HealthcareService*
+    methods: [ "GET", "HEAD" ]
+    upstream_id: 1
+
+  - name: provider-directory-api-healthcare-service-write
+    uri: /fhir/HealthcareService*
+    methods: [ "POST", "PUT", "PATCH", "DELETE" ]
+    upstream_id: 1
 
 ssls:
   -
