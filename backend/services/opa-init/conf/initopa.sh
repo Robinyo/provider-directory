@@ -14,7 +14,7 @@ export OPA_SERVICE_ADMIN_PORT=${OPA_SERVICE_ADMIN_PORT:-8181}
 
 curl --location --request PUT "${OPA_SERVICE_PROTOCOL}://${OPA_SERVICE_HOST}:${OPA_SERVICE_ADMIN_PORT}/v1/policies/organization" \
   --header 'Content-Type: text/plain' \
-  --data 'package organization.read
+  --data-raw 'package organization.read
 
 methods := "GET HEAD"
 path := "/fhir/Organization"
