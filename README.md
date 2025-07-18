@@ -145,6 +145,7 @@ Policies are loaded when the Policy Engine is healthy and all reference data has
 * Rob Ferguson's blog: [Secure HAPI FHIR data in transit](https://rob-ferguson.me/secure-hapi-fhir-data-in-transit/)
 * Rob Ferguson's blog: [Secure HAPI FHIR data at rest](https://rob-ferguson.me/secure-hapi-fhir-data-at-rest/)
 * Rob Ferguson's blog: [Healthcare Provider Directory Access Control](https://rob-ferguson.me/healthcare-provider-directory-access-control/)
+* Rob Ferguson's blog: [Getting started with Open Policy Agent](https://rob-ferguson.me/getting-started-with-open-policy-agent/)
 * Rob Ferguson's blog: [Use Open Policy Agent to enforce access control policies in SMART on FHIR applications](https://rob-ferguson.me/use-open-policy-agent-to-enforce-access-control-policies-in-smart-on-fhir-applications/)
 
 ## ❯ References
