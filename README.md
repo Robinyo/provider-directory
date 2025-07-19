@@ -144,6 +144,8 @@ Reference data (e.g., Relationships) is loaded when the Policy Engine is healthy
 
 Policies are loaded when the Policy Engine is healthy and all reference data has been loaded.
 
+**Note:** Keycloak does not currently support [Resource Indicators for OAuth 2.0](https://datatracker.ietf.org/doc/html/rfc8707).
+
 ![divider](./divider.png)
 
 ## ❯ Documentation
