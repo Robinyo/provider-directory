@@ -69,7 +69,7 @@ system/Organization.read
 system/Organization.write
 ```
 
-To enable an OAuth 2.0 client to read all the values from the Organization resource the client would include the `system/Organization.read` scope in its request to the authorization server.
+To enable an OAuth 2.0 client to read all the values from the Organization resource the OAuth 2.0 client would include the `system/Organization.read` scope in its request to the authorization server.
 
 A resource context prefixes each SMART on FHIR scope:
 
@@ -79,7 +79,7 @@ patient
 system
 ```
 
-This value represents one of three possible scenarios: `user` access to the resource is constrained by the user's access permissions; `patient` access to the resource is restricted to the in-context patient; `system` access is confined to system-based authorization workflows.
+This value represents one of three possible scenarios: `user` access to the resource is constrained by the user's access permissions; `patient` access to the resource is restricted to the in-context patient; `system` access is confined to system-based authorization workflows (e.g., the Client Credentials grant).
 
 The following modification rights are defined:
 
