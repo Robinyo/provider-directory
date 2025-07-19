@@ -58,6 +58,40 @@ For example, to read Organisation information:
 GET /Organization/{id}
 ```
 
+### SMART on FHIR
+
+SMART on FHIR defines OAuth 2.0 [scopes](https://build.fhir.org/ig/HL7/smart-app-launch/scopes-and-launch-context.html that allow applications to request a specific set of access rights. The OAuth 2.0 client conveys this information to the authorization server in the form of a 'scope' request parameter.
+
+The SMART on FHIR specification defines the structure of scopes, for example:
+
+```
+system/Organization.read
+system/Organization.write
+```
+
+To enable an OAuth 2.0 client to read all the values from the Organization resource the client would include the `system/Organization.read` scope in its request to the authorization server.
+
+A resource context prefixes each SMART on FHIR scope:
+
+```
+user
+patient
+system
+```
+
+This value represents one of three possible scenarios: `user` access to the resource is constrained by the user's access permissions; `patient` access to the resource is restricted to the in-context patient; `system` access is confined to system-based authorization workflows.
+
+The following modification rights are defined:
+
+```
+read
+write
+```
+
+Where read includes "search" and "history”. And, write includes create", "update and "delete".
+
+**Note:** Keycloak does not support wildcard scopes, clients must explicitly request each scope they require.
+
 ![divider](./divider.png)
 
 ## ❯ Access Control
