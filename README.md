@@ -60,7 +60,7 @@ GET /Organization/{id}
 
 ### SMART on FHIR
 
-SMART on FHIR defines OAuth 2.0 [scopes](https://build.fhir.org/ig/HL7/smart-app-launch/scopes-and-launch-context.html that allow applications to request a specific set of access rights. The OAuth 2.0 client conveys this information to the authorization server in the form of a 'scope' request parameter.
+SMART on FHIR defines OAuth 2.0 [scopes](https://build.fhir.org/ig/HL7/smart-app-launch/scopes-and-launch-context.html) that allow applications to request a specific set of access rights. The OAuth 2.0 client conveys this information to the authorization server in the form of a 'scope' request parameter.
 
 The SMART on FHIR specification defines the structure of scopes, for example:
 
