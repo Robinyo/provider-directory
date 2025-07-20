@@ -2,7 +2,9 @@
 
 ## ❯ Keycloak
 
-### ❯ Keycloak Authorization Services - Fine-grained Authorization
+### Keycloak Authorization Services
+
+#### Fine-grained Authorization
 
 You must allow the 'Authorization' capability config setting in order to enable support for fine-grained authorisation.
 

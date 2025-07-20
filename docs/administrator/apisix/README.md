@@ -2,24 +2,6 @@
 
 ## ❯ APISIX
 
-### Keycloak Authorization Services - Fine-grained Authorization
-
-You must allow the 'Authorization' capability config setting in order to enable support for fine-grained authorisation.
-
-<p align="center">
-  <img src="./keycloak-capability-config-authorization.png" alt="Allow the 'Authorization' capability config setting"/>
-</p>
-
-When you enable the 'Authorization' capability config setting, Keycloak will create a Default Policy:
-
-<p align="center">
-  <img src="./keycloak-authorization-server-default-policy.png" alt="Authorization Server Default policy"/>
-</p>
-
-You need to **delete** the Default Policy if you want to 'export' then 'import' your realm settings.
-
-See: [Keycloak Issues - ERROR: Script upload is disabled](https://github.com/keycloak/keycloak/discussions/28019)
-
 ### AuthZ Keycloak plugin
 
 The `authz-keycloak` plugin enables APISIX to leverage the fine-grained authorisation policies and access control mechanisms supported by Keycloak.
