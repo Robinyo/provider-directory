@@ -1,10 +1,14 @@
-<h1 align="center">REST API</h1>
+<h1 align="center">Working with Open Policy Agent</h1>
 
-### Common Request Headers
+## ❯ Open Policy Agent
+
+### REST API
+
+#### Common Request Headers
 
 The following request headers are commonly used in some API endpoints:
 
-#### Content-Type
+##### Content-Type
 
 It indicates the request body format. These are some values used in some APIs:
 
@@ -14,27 +18,27 @@ It indicates the request body format. These are some values used in some APIs:
 --header 'Content-Type: text/plain' for plain text content, e.g., a policy
 ```
 
-### Policy API
+#### Policy API
 
 The Policy API exposes CRUD endpoints for managing policy modules. Policy modules can be added, removed, and modified at any time.
 
 The identifiers given to policy modules are only used for management purposes. They are not used outside the Policy API.
 
-#### List Policies
+##### List Policies
 
 ```
 curl -X GET https://provider-directory.au.localhost/v1/policies?pretty=true \
   -H 'Content-Type: application/json'
 ```
 
-#### Get a Policy
+##### Get a Policy
 
 ```
 curl -X GET https://provider-directory.au.localhost/v1/policies/organization?pretty=true \
   -H 'Content-Type: application/json'
 ```
 
-#### Create or Update a Policy
+##### Create or Update a Policy
 
 ```
 curl --location --request PUT 'https://provider-directory.au.localhost/v1/policies/organization' \
@@ -71,15 +75,15 @@ token := payload if {
 }'
 ```
 
-#### Delete a Policy
+##### Delete a Policy
 
 ```
 curl --location --request DELETE 'https://provider-directory.au.localhost/v1/policies/organization'
 ```
 
-### Query API
+#### Query API
 
-#### Execute a Simple Query
+##### Execute a Simple Query
 
 ```
 curl --location 'https://provider-directory.au.localhost/v1/data/organization' \
@@ -90,3 +94,9 @@ curl --location 'https://provider-directory.au.localhost/v1/data/organization' \
   }
 }' 
 ```
+
+## ❯ References
+
+### Open Policy Agent
+
+* OPA docs: [REST API Reference](https://www.openpolicyagent.org/docs/rest-api)
