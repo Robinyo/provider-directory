@@ -38,8 +38,8 @@ curl -X GET https://provider-directory.au.localhost/v1/policies/organization?pre
 
 ```
 curl --location --request PUT 'https://provider-directory.au.localhost/v1/policies/organization' \
---header 'Content-Type: application/json' \
---data 'package organization.read
+  --header 'Content-Type: application/json' \
+  --data 'package organization.read
 
 methods := "GET HEAD"
 path := "/fhir/Organization"
@@ -49,9 +49,9 @@ default allow := false
 
 allow if {
   is_method
-	is_request_path
-	is_scope
-	is_client
+  is_request_path
+  is_scope
+  is_client
 }
 
 is_method if contains(methods, input.request.method)
