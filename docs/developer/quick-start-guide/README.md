@@ -95,10 +95,13 @@ ACCESS_TOKEN=$(curl -s -X POST https://keycloak.au.localhost:8443/realms/hapi-fh
   -d grant_type=client_credentials \
   -d client_id=oauth2-proxy \
   -d client_secret=aHkRec1BYkfaKgMg164JmvKu8u9iWNHM \
+  -d resource=https://provider-directory.au.localhost/fhir/Organization\
   -d scope=system/Organization.read | (jq -r '.access_token'))
                  
 # echo "$ACCESS_TOKEN"                 
 ```
+
+**Note:** Keycloak does not currently support [Resource Indicators for OAuth 2.0](https://datatracker.ietf.org/doc/html/rfc8707).
 
 **Note:** You can use [jwt.io](https://jwt.io/) to decode the access token.
 
