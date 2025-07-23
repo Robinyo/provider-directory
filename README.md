@@ -40,8 +40,8 @@ There are a number of provider-related FHIR resources.
 
 For example:
 
-- Practioner
-- Practioner Role
+- Practitioner
+- Practitioner Role
 - Organization
 - Healthcare Service
 - Location

@@ -91,7 +91,7 @@ For example (`scope=system/Organization.read`):
 
 ```
 ACCESS_TOKEN=$(curl -s -X POST https://keycloak.au.localhost:8443/realms/hapi-fhir-dev/protocol/openid-connect/token \
-  -H 'content-type: application/x-www-form-urlencoded' \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
   -d grant_type=client_credentials \
   -d client_id=oauth2-proxy \
   -d client_secret=aHkRec1BYkfaKgMg164JmvKu8u9iWNHM \
@@ -113,7 +113,7 @@ For example:
 
 ```
 curl -X POST "https://keycloak.au.localhost:8443/realms/hapi-fhir-dev/protocol/openid-connect/token/introspect" \
-  -H 'content-type: application/x-www-form-urlencoded' \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
   -d client_id=oauth2-proxy \
   -d client_secret=aHkRec1BYkfaKgMg164JmvKu8u9iWNHM \
   -d "token_type_hint=access_token&token=$ACCESS_TOKEN"
