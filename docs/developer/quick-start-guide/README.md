@@ -95,7 +95,7 @@ ACCESS_TOKEN=$(curl -s -X POST https://keycloak.au.localhost:8443/realms/hapi-fh
   -d grant_type=client_credentials \
   -d client_id=oauth2-proxy \
   -d client_secret=aHkRec1BYkfaKgMg164JmvKu8u9iWNHM \
-  -d resource=https://provider-directory.au.localhost/fhir/Organization\
+  -d resource=https://provider-directory.au.localhost/fhir/Organization \
   -d scope=system/Organization.read | (jq -r '.access_token'))
                  
 # echo "$ACCESS_TOKEN"                 
