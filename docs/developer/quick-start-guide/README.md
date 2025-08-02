@@ -108,13 +108,6 @@ You should see something like:
   ...
   
   "registration_endpoint": "https://keycloak.au.localhost:8443/realms/hapi-fhir-dev/clients-registrations/openid-connect",
-  "token_endpoint_auth_methods_supported": [
-    "private_key_jwt",
-    "client_secret_basic",
-    "client_secret_post",
-    "tls_client_auth",
-    "client_secret_jwt"
-  ],
   
   '''  
 
