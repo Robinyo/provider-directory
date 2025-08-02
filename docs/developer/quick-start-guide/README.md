@@ -85,7 +85,7 @@ You must allow the 'Service account roles' capability config setting in order to
 
 #### Endpoints
 
-To discover the endpoints exposed by Keycloak using the following command:
+To discover the endpoints exposed by Keycloak use the following command:
 
 ```
 curl https://keycloak.au.localhost:8443/realms/hapi-fhir-dev/.well-known/openid-configuration
