@@ -83,6 +83,44 @@ You must allow the 'Service account roles' capability config setting in order to
   <img src="./hapi-fhir-service-account-roles.png" alt="Keycloak Capability Config"/>
 </p>
 
+#### Endpoints
+
+To discover the endpoints exposed by Keycloak using the following command:
+
+```
+curl https://keycloak.au.localhost:8443/realms/hapi-fhir-dev/.well-known/openid-configuration
+```
+
+You should see something like:
+
+```
+{
+  "issuer": "https://keycloak.au.localhost:8443/realms/hapi-fhir-dev",
+  "authorization_endpoint": "https://keycloak.au.localhost:8443/realms/hapi-fhir-dev/protocol/openid-connect/auth",
+  "token_endpoint": "https://keycloak.au.localhost:8443/realms/hapi-fhir-dev/protocol/openid-connect/token",
+  "introspection_endpoint": "https://keycloak.au.localhost:8443/realms/hapi-fhir-dev/protocol/openid-connect/token/introspect",
+  "userinfo_endpoint": "https://keycloak.au.localhost:8443/realms/hapi-fhir-dev/protocol/openid-connect/userinfo",
+  "end_session_endpoint": "https://keycloak.au.localhost:8443/realms/hapi-fhir-dev/protocol/openid-connect/logout",
+  "frontchannel_logout_session_supported": true,
+  "frontchannel_logout_supported": true,
+  "jwks_uri": "https://keycloak.au.localhost:8443/realms/hapi-fhir-dev/protocol/openid-connect/certs",
+
+  ...
+  
+  "registration_endpoint": "https://keycloak.au.localhost:8443/realms/hapi-fhir-dev/clients-registrations/openid-connect",
+  "token_endpoint_auth_methods_supported": [
+    "private_key_jwt",
+    "client_secret_basic",
+    "client_secret_post",
+    "tls_client_auth",
+    "client_secret_jwt"
+  ],
+  
+  '''  
+
+}
+```
+
 #### Request a token
 
 To access the API, you must request an access token. You will need to POST to the token URL.
